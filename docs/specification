@@ -19,13 +19,23 @@ Grammar:
 							| BOOLEAN
 10)	initializatons			initializations, initialization
 							| initialization
-11) initialization			pointer_dec <= expression
-							| pointer_dec
-12) pointer_dec				@ variable_name
-							| variable_name
-13) variable_name			ID [ LITERALINT ]
-							| ID
-14)
+11) initialization			pointer_declaration ID array_specification <= expression
+							| pointer_declaration ID array_specification
+12) pointer_declaration		@
+							|
+13) array_specification		index_reference
+							|
+14) index_reference			[ LITERALINT ]
+XXXXXXXXXXXXXXXXXXXXX
+14) struct_declaration		STRUCT ID { local_declarations } ;
+15) local_declarations		local_declarations variable_declaration
+							|
+16) function_declaration    type_specifier ID ( parameters ) compound_statement
+17) parameters				parameter_list
+							| VOID
+18) parameter_list			parameter_list , parameter
+							| parameter
+19)	parameter				type_specifier pointer_declaration
 xx) expression				additive_expression relop additive_expression
 							additive_expression
 xx) relop					<=
