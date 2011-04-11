@@ -3,7 +3,6 @@
 %{
 	#include "HParser.h"
 
-
 	/* Error handling routine */
 	int yyerror(const char *str)
 	{
@@ -23,6 +22,11 @@
 /* Syntax tokens */
 %token ENDOFLINE
 
+/* type tokens */
+%token INT CHAR FLOAT BOOLEAN
+
+/* constant/literal tokens */
+%token ID LITERALINT
 %%
 
 program :
@@ -47,7 +51,7 @@ declaration :
 	 */ 
 	
 variable_declaration :
-	type_specifier /*initializations*/ ENDOFLINE
+	type_specifier initializations ENDOFLINE
 	;
 	
 type_specifier :
@@ -55,7 +59,20 @@ type_specifier :
 	;
 	
 primitive :
-	BAD
+	INT
+	{
+		fprintf(stderr, "int!!!\n");
+	}
+	|
+	CHAR
+	|
+	FLOAT
+	|
+	BOOLEAN
+	;
+	
+initializations :
+	ID
 	;
 	/*
 Grammar:

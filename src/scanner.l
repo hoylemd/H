@@ -3,6 +3,10 @@
 
 %}
 
+letter		[a-zA-Z] 
+digit		[0-9]
+whitespace	[ \t]+
+
 %option noyywrap
 %option nounput
 %option yylineno
@@ -10,8 +14,19 @@
 
 %%
 
-.	{return BAD;}
 
+int							{return INT;} 		/* type tokens */
+char						{return CHAR;}
+float						{return FLOAT;}
+boolean						{return BOOLEAN;}
+
+{letter}({letter}|{digit})*	{return ID;}		/* constant tokens */
+{digit}+					{return LITERALINT;}
+
+;							{return ENDOFLINE;}	/* syntax tokens */
+
+.							{return BAD;}		/* bookeeping tokens */
+{whitespace}				{/*ignore whitespace */}
 %%
 
 int getToken()
