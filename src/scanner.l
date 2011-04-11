@@ -15,18 +15,19 @@ whitespace	[ \t]+
 %%
 
 
-int							{return INT;} 		/* type tokens */
-char						{return CHAR;}
-float						{return FLOAT;}
-boolean						{return BOOLEAN;}
+int							{return INT; colNum += strlen(yytext);} 		/* type tokens */
+char						{return CHAR;colNum += strlen(yytext);}
+float						{return FLOAT;colNum += strlen(yytext);}
+boolean						{return BOOLEAN;colNum += strlen(yytext);}
 
-{letter}+					{return ID;}		/* constant tokens */
-{digit}+					{return LITERALINT;}
+{letter}+					{return ID;colNum += strlen(yytext);}		/* constant tokens */
+{digit}+					{return LITERALINT;colNum += strlen(yytext);}
 
-;							{return ENDOFLINE;}	/* syntax tokens */
+;							{return ENDOFLINE;colNum += strlen(yytext);}	/* syntax tokens */
 
-[\ \t]+						{/* ignore whitespace */}
-.							{return BAD;}		/* bookeeping tokens */
+{whitespace}				{/* ignore whitespace */colNum += strlen(yytext);}
+\n							{lineNum++; colNum = 0;}
+.							{return BAD;colNum += strlen(yytext);}		/* bookeeping tokens */
 
 %%
 

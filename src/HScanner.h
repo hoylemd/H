@@ -10,4 +10,7 @@
 #include "Parser.h"
 #include "parser.h"
 
+int colNum;
+int lineNum;
+
 #endif
