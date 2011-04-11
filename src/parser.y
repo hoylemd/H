@@ -60,9 +60,6 @@ type_specifier :
 	
 primitive :
 	INT
-	{
-		fprintf(stderr, "int!!!\n");
-	}
 	|
 	CHAR
 	|

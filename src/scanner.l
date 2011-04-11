@@ -20,13 +20,14 @@ char						{return CHAR;}
 float						{return FLOAT;}
 boolean						{return BOOLEAN;}
 
-{letter}({letter}|{digit})*	{return ID;}		/* constant tokens */
+{letter}+					{return ID;}		/* constant tokens */
 {digit}+					{return LITERALINT;}
 
 ;							{return ENDOFLINE;}	/* syntax tokens */
 
+[\ \t]+						{/* ignore whitespace */}
 .							{return BAD;}		/* bookeeping tokens */
-{whitespace}				{/*ignore whitespace */}
+
 %%
 
 int getToken()
@@ -34,7 +35,7 @@ int getToken()
     int placeholder = 0;
 	int lineno = 1;
     static int firstTime = TRUE;
-    
+	
     if (firstTime)
     {
 		firstTime = FALSE;
