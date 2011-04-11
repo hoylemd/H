@@ -6,7 +6,7 @@ Grammar:
 							| function_declaration
 							| struct_declaration
 4)	variable_declaration ->	type_specifier initializatons ;
-5)	type_specifier ->		signing size primitive
+5)	type_specifier ->		signing size primitive *** sizes removed for now ***
 							| STRUCT ID
 7)	signing					UNSIGNED
 							| SIGNED
