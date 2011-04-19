@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include "globals.h"
+#include "Scanner.h"
 
 extern FILE * input;
 extern FILE * out;

@@ -1,5 +1,5 @@
 %{
-#include "Hlex.h"
+#include "HScanner.h"
 
 %}
 
