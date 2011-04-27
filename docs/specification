@@ -19,3 +19,18 @@ Grammar:
 							| BOOLEAN
 10)	initializatons			initializations, initialization
 							| initialization
+11) initialization			pointer_dec <= expression
+							| pointer_dec
+12) pointer_dec				@ variable_name
+							| variable_name
+13) variable_name			ID [ LITERALINT ]
+							| ID
+14)
+xx) expression				additive_expression relop additive_expression
+							additive_expression
+xx) relop					<=
+							|<
+							|>
+							|>=
+							|=
+							|<>
