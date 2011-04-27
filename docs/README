@@ -1,0 +1,7 @@
+To Compile:
+	run "make"
+
+To Run
+	run ./H
+
+Currently accepts all tokens

@@ -1,0 +1,21 @@
+Grammar:
+1)	program -> 				declaration_list
+2)	declaration_list -> 	declaration_list_declaration
+							| declaration
+3)	declaration ->			variable_declaration
+							| function_declaration
+							| struct_declaration
+4)	variable_declaration ->	type_specifier initializatons ;
+5)	type_specifier ->		signing size primitive
+							| STRUCT ID
+7)	signing					UNSIGNED
+							| SIGNED
+							|
+8)	size					size LONG
+							|
+9)	primitive				INT
+							| CHAR
+							| FLOAT
+							| BOOLEAN
+10)	initializatons			initializations, initialization
+							| initialization

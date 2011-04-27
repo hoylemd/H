@@ -10,12 +10,14 @@
 
 %%
 
+.	{return BAD;}
+
 %%
 
 int getToken()
 {
     int placeholder = 0;
-	int lineno = 0;
+	int lineno = 1;
     static int firstTime = TRUE;
     
     if (firstTime)
